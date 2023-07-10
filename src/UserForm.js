@@ -11,6 +11,8 @@ const UserForm = (props) => {
       id: `U${props.usersLength}`,
     };
     props.onSubmitUser(userData);
+    setUserName("");
+    setUserAge("");
   };
   const userNameHandler = (e) => {
     setUserName(e.target.value);
