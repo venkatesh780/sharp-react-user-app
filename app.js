@@ -12,18 +12,26 @@ const usersArr = [
 ];
 const App = () => {
   const [users, setUsers] = useState(usersArr);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   const getUsersData = (user) => {
+    if (user.userName.length === 0 || user.userAge.length === 0) {
+      setIsEmpty(true);
+      return;
+    }
     setUsers((prevUsers) => {
       const users = [...prevUsers, user];
       return users;
     });
   };
+  const isEmptyHamdler = (empty) => {
+    setIsEmpty(empty);
+  };
   return (
-    <div className="flex">
+    <div className="">
       <UserForm onSubmitUser={getUsersData} usersLength={users.length} />
-      <UserList users={users} />
-      <EmptyInputsError />
+      {isEmpty && <EmptyInputsError onChangeUser={isEmptyHamdler} />}
+      {!isEmpty && <UserList users={users} />}
     </div>
   );
 };
