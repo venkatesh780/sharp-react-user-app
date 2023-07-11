@@ -38,12 +38,14 @@ const App = () => {
     setIsNegativeAge(isNeg);
   };
   return (
-    <div className="">
-      <UserForm onSubmitUser={getUsersData} usersLength={users.length} />
-      {isNegativeAge && <NegativeInputError onChangeAge={isAgeNegative} />}
-      {isEmpty && <EmptyInputsError onChangeUser={isEmptyHamdler} />}
-      {!isEmpty && !isNegativeAge && <UserList users={users} />}
-    </div>
+    <>
+      <div className="flex flex-col ml-auto">
+        <UserForm onSubmitUser={getUsersData} usersLength={users.length} />
+        {isNegativeAge && <NegativeInputError onChangeAge={isAgeNegative} />}
+        {isEmpty && <EmptyInputsError onChangeUser={isEmptyHamdler} />}
+        {!isEmpty && !isNegativeAge && <UserList users={users} />}
+      </div>
+    </>
   );
 };
 
