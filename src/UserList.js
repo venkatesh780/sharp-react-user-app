@@ -7,7 +7,9 @@ const UserList = (props) => {
           return (
             <li
               className="h-9"
-              key={user.id}>{`${user.userName} ${user.userAge} (Years)`}</li>
+              key={
+                user.id
+              }>{`${user.userName} ${user.userAge} (Years) ${user.userCollege}`}</li>
           );
         })}
       </ul>

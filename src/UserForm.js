@@ -4,24 +4,24 @@ import Wrapper from "./Helpers/Wrapper";
 const UserForm = (props) => {
   const userNameRef = useRef();
   const userAgeRef = useRef();
-  // const [userName, setUserName] = useState("");
-  // const [userAge, setUserAge] = useState("");
+  const userCollegeRef = useRef();
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
     const userData = {
       userName: userNameRef.current.value,
       userAge: userAgeRef.current.value,
+      userCollege: userCollegeRef.current.value,
       id: `U${props.usersLength}`,
     };
     props.onSubmitUser(userData);
 
     userNameRef.current.value = "";
     userAgeRef.current.value = "";
+    userCollegeRef.current.value = "";
   };
   return (
     <Wrapper>
-      {console.log("userform-rendering")}
       <div className="bg-green-100 p-2 m-2 max-w-lg">
         <form>
           <div className="m-3">
@@ -31,6 +31,10 @@ const UserForm = (props) => {
           <div className="m-3">
             <label className="block">Age (Years)</label>
             <input type="number" className="h-8" ref={userAgeRef} />
+          </div>
+          <div className="m-3">
+            <label className="block">College</label>
+            <input type="text" className="h-8" ref={userCollegeRef} />
           </div>
           <button
             type="submit"

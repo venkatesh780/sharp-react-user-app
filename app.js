@@ -6,10 +6,10 @@ import UserForm from "./src/UserForm";
 import UserList from "./src/UserList";
 
 const usersArr = [
-  { id: "u1", userName: "venkatesh", userAge: 25 },
-  { id: "u2", userName: "ram", userAge: 21 },
-  { id: "u3", userName: "raj", userAge: 27 },
-  { id: "u4", userName: "rakesh", userAge: 24 },
+  { id: "u1", userName: "venkatesh", userAge: 25, userCollege: "RKV" },
+  { id: "u2", userName: "ram", userAge: 21, userCollege: "RKV" },
+  { id: "u3", userName: "raj", userAge: 27, userCollege: "RKV" },
+  { id: "u4", userName: "rakesh", userAge: 24, userCollege: "RKV" },
 ];
 const App = () => {
   const [users, setUsers] = useState(usersArr);
@@ -17,7 +17,11 @@ const App = () => {
   const [isNegativeAge, setIsNegativeAge] = useState(false);
 
   const getUsersData = (user) => {
-    if (user.userName.length === 0 || user.userAge.length === 0) {
+    if (
+      user.userName.length === 0 ||
+      user.userAge.length === 0 ||
+      user.userCollege.length === 0
+    ) {
       setIsEmpty(true);
       return;
     }
